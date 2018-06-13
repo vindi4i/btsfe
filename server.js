@@ -6,8 +6,8 @@ const db             = require('./config/db');
 const LocalStrategy  = require('passport-local').Strategy;
 const app            = express();
 
-var server_port = process.env.OPENSHIFT_NODEJS_PORT || 3000//8080
-var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1'//'0.0.0.0'
+var server_port = process.env.OPENSHIFT_NODEJS_PORT || 8080
+var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0'
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
@@ -19,9 +19,12 @@ app.get('/', function (req, res) {
   res.render('auth')
 })
 
-app.listen(3000, function () {
+/*app.listen(3000, function () {
   console.log('App listening on port 3000!')
-})
+})*/
+app.listen(server_port, server_ip_address, function () {
+    console.log('We are live on ' + server_port);
+});
 
 app.get('/success', (req, res) => res.render('index'));
 app.get('/error', (req, res) => res.send("error logging in"));

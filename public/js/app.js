@@ -60,7 +60,7 @@ function OnSuccessCall(response) {
                 align: "center",
                 width: 50
             },
-            { name: "_id", type: "text" },
+            //{ name: "_id", type: "text" },
             { name: "DeviceName", type: "text" },
             { name: "MaxRatioError", type: "number" },
             { name: "EventDate", type: "text" },
@@ -77,7 +77,7 @@ function OnSuccessCall(response) {
                       //filter for each column
                       return ((!filter.MaxRatioError || item.MaxRatioError.indexOf(filter.MaxRatioError) >= 0)
                       && (!filter.DeviceName || item.DeviceName.indexOf(filter.DeviceName) >= 0)
-                      && (!filter._id || item._id.indexOf(filter._id) >= 0)
+                      //&& (!filter._id || item._id.indexOf(filter._id) >= 0)
                       && (!filter.EventDate || item.EventDate.indexOf(filter.EventDate) >= 0)
                       && (!filter.VectorGroup || item.VectorGroup.indexOf(filter.VectorGroup) >= 0)
                       && (!filter.SoftwareVersion || item.SoftwareVersion.indexOf(filter.SoftwareVersion) >= 0)
